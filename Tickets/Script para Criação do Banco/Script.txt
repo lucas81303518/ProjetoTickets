@@ -1,0 +1,25 @@
+--Banco PostGreSQL
+--Criando banco de dados
+CREATE DATABASE TicketRefeicao;
+
+--Criando Tabela de Funcionario
+CREATE TABLE Funcionario
+(
+    Id_Funcionario integer NOT NULL,
+    Nome character varying(50) NOT NULL,
+    Cpf character varying(11) NOT NULL,
+    Situacao char NOT NULL,
+    DtAlteracao timestamp without time zone,
+    CONSTRAINT Funcionarios_pkey PRIMARY KEY (Id_Funcionario)
+);
+
+--Criando Tabela de Tickets
+CREATE TABLE Ticket(
+	Id_Ticket SERIAL NOT NULL,
+	fk_Funcionario Integer NOT NULL,
+	Quantidade Integer NOT NULL,
+	Situacao CHAR NOT NULL,
+	DtEntrega TIMESTAMP WITHOUT TIME ZONE,
+	CONSTRAINT Tickets_pkey PRIMARY KEY (Id_Ticket),
+	CONSTRAINT Tickets_Func FOREIGN KEY (fk_Funcionario) REFERENCES Funcionario (Id_Funcionario)
+);
