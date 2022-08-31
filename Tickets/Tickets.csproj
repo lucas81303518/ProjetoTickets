@@ -48,6 +48,24 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql, Version=4.1.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.4.1.3\lib\net461\Npgsql.dll</HintPath>
     </Reference>
@@ -94,36 +112,64 @@
   <ItemGroup>
     <Compile Include="Banco\Context.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
+    <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Models\FuncionarioDB.cs" />
     <Compile Include="Models\FuncionarioDTO.cs" />
+    <Compile Include="Models\Relatorio.cs" />
+    <Compile Include="Models\TicketDTO.cs" />
+    <Compile Include="Models\TicketDB.cs" />
     <Compile Include="Utils.cs" />
-    <Compile Include="Views\F_CadFuncionario.cs">
+    <Compile Include="Views\Funcionario\F_CadFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\F_CadFuncionario.Designer.cs">
+    <Compile Include="Views\Funcionario\F_CadFuncionario.Designer.cs">
       <DependentUpon>F_CadFuncionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\F_Funcionario.cs">
+    <Compile Include="Views\Relatorios\F_FiltroRelatorio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\F_Funcionario.Designer.cs">
+    <Compile Include="Views\Relatorios\F_FiltroRelatorio.Designer.cs">
+      <DependentUpon>F_FiltroRelatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Relatorios\F_Relatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Relatorios\F_Relatorio.Designer.cs">
+      <DependentUpon>F_Relatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ticket\F_CadTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Ticket\F_CadTickets.Designer.cs">
+      <DependentUpon>F_CadTickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcionario\F_Funcionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcionario\F_Funcionario.Designer.cs">
       <DependentUpon>F_Funcionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\F_Principal.cs">
+    <Compile Include="Views\Principal\F_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\F_Principal.Designer.cs">
+    <Compile Include="Views\Principal\F_Principal.Designer.cs">
       <DependentUpon>F_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Views\F_CadFuncionario.resx">
+    <Compile Include="Views\Ticket\F_Tickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Ticket\F_Tickets.Designer.cs">
+      <DependentUpon>F_Tickets.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\Funcionario\F_CadFuncionario.resx">
       <DependentUpon>F_CadFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\F_Funcionario.resx">
+    <EmbeddedResource Include="Views\Funcionario\F_Funcionario.resx">
       <DependentUpon>F_Funcionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\F_Principal.resx">
+    <EmbeddedResource Include="Views\Principal\F_Principal.resx">
       <DependentUpon>F_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -136,6 +182,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Relatorios\F_FiltroRelatorio.resx">
+      <DependentUpon>F_FiltroRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Relatorios\F_Relatorio.resx">
+      <DependentUpon>F_Relatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Ticket\F_CadTickets.resx">
+      <DependentUpon>F_CadTickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Ticket\F_Tickets.resx">
+      <DependentUpon>F_Tickets.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -150,7 +208,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Incluir.png" />
   </ItemGroup>
@@ -165,6 +222,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

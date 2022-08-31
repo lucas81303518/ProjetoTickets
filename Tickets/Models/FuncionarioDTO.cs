@@ -13,5 +13,9 @@ namespace Tickets.Models
         public string cpf { get; set; }
         public string situacao { get; set; }
         public DateTime dtalteracao { get; set; }
+        public override string ToString()
+        {
+            return $"{id_funcionario} - {nome}";
+        }
     }
 }

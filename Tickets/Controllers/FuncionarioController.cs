@@ -10,9 +10,9 @@ namespace Tickets.Controllers
 {
     public class FuncionarioController
     {
+        Context context = new Context();
         public void Incluir(FuncionarioDB funcionario)
-        {
-            Context context = new Context();
+        {            
             if(funcionario != null)
             {
                 context.funcionario.Add(funcionario);
@@ -22,8 +22,7 @@ namespace Tickets.Controllers
         public void Editar(FuncionarioDB funcionario)
         {
             try
-            {
-                Context context = new Context();
+            {                
                 var func = context.funcionario.FirstOrDefault(f => f.id_funcionario == funcionario.id_funcionario);
                 if (func != null)
                 {
@@ -41,8 +40,7 @@ namespace Tickets.Controllers
             }                     
         }
         public FuncionarioDB GetFuncionario(int id)
-        {
-            Context context = new Context();
+        {         
             var funcionario = context.funcionario.FirstOrDefault(f => f.id_funcionario == id);
             if (funcionario != null)
                 return funcionario;
@@ -50,8 +48,7 @@ namespace Tickets.Controllers
                 return null;
         }
         public List<FuncionarioDTO> GetFuncionarios()
-        {
-            Context context = new Context();
+        {          
             List<FuncionarioDTO> lista;
             lista = (from Funcionarios in context.funcionario
                                            orderby Funcionarios.id_funcionario
@@ -68,6 +65,15 @@ namespace Tickets.Controllers
                 Func.cpf = Utils.AplicaMascaraCpf(Func.cpf);
             }
             return lista;
+        }
+        //Retorna o Funcionario com o Cpf existente
+        public FuncionarioDB CpfJaExiste(string cpf)
+        {            
+            var funcionario = context.funcionario.FirstOrDefault(f => f.cpf == cpf);
+            if (funcionario != null)
+                return funcionario;
+            else
+                return null;
         }
     }
 }

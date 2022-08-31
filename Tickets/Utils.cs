@@ -9,15 +9,10 @@ namespace Tickets
 {
     public static class Utils
     {
-        public static string RetiraPontos(string texto)
+        public static string RetiraMascaraCpf(string texto)
         {
-            string result = "";           
-            for (int i = 0; i < texto.Length; i++)
-            {
-                if ((texto[i] != '.') && texto[i] != '-')
-                    result += texto[i];
-            }                            
-            return result;
+            texto = texto.Replace(".", "").Replace("-", "");            
+            return texto;
         }   
         public static string AplicaMascaraCpf(string texto)
         {
@@ -31,6 +26,28 @@ namespace Tickets
                 result += texto[i];
             }
             return result;
+        }
+        //Pega o tamanho da string até onde separa o Id_Funcionario do Nome
+        public static int GetPos(string texto)
+        {
+            int Pos = 0;
+            for (int i = 0; i < texto.Length; i++)
+            {
+                if (texto[i] == '-')
+                    Pos = i-1;
+            }
+            return Pos;
+        }
+        public static void CentralizaTela(Form Formulario, Panel panel)
+        {            
+            Formulario.Visible = false;
+            Formulario.TopLevel = false;
+            panel.Controls.Add(Formulario);
+            Formulario.Left = (panel.Width - Formulario.Width) / 2;
+            Formulario.Top = (panel.Height - Formulario.Height) / 2;
+            Formulario.FormBorderStyle = FormBorderStyle.Sizable;
+            Formulario.Visible = true;
+            Formulario.BringToFront();
         }
         public static bool MessageYesNo(string msg, string titulo)
         {
@@ -51,6 +68,6 @@ namespace Tickets
         public static void MessageExclamation(string msg, string titulo)
         {
             MessageBox.Show(msg, titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
+        }        
     }
 }
