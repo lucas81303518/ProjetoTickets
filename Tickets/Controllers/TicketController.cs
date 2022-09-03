@@ -8,14 +8,17 @@ namespace Tickets.Controllers
 {
     public class TicketController
     {
-        Context context = new Context();
-        public TicketController() { }
+        private readonly Context _context;
+        public TicketController()
+        {
+            _context = new Context();
+        }
         public bool Incluir(TicketDB ticketDB)
         {
             if (ticketDB != null)
             {
-                context.ticket.Add(ticketDB);
-                context.SaveChanges();
+                _context.ticket.Add(ticketDB);
+                _context.SaveChanges();
                 return true;
             }
             else
@@ -23,14 +26,14 @@ namespace Tickets.Controllers
         }
         public bool Editar(TicketDB ticketDB)
         {
-            var ticket = context.ticket.FirstOrDefault(t => t.id_ticket == ticketDB.id_ticket);
+            var ticket = _context.ticket.FirstOrDefault(t => t.id_ticket == ticketDB.id_ticket);
             if (ticket != null)
             {
                 ticket.id_ticket = ticketDB.id_ticket;
                 ticket.fk_funcionario = ticketDB.fk_funcionario;
                 ticket.quantidade = ticketDB.quantidade;
                 ticket.situacao = ticketDB.situacao;
-                context.SaveChanges();
+                _context.SaveChanges();
                 return true;
             }
             else
@@ -39,7 +42,7 @@ namespace Tickets.Controllers
         public List<TicketDTO> GetTickets()
         {            
             List<TicketDTO> lista;
-            return lista = (from tickets in context.ticket
+            return lista = (from tickets in _context.ticket
                             orderby tickets.fk_funcionario, tickets.situacao
                             select new TicketDTO
                             {
@@ -57,8 +60,8 @@ namespace Tickets.Controllers
             if(codFuncionario > 0)
             {
                 //Gerando lista filtrada porém sem agrupamento, Filtrando o Código do Funcionário
-                listaRelatorio = (from tickets in context.ticket
-                                  join funcionarios in context.funcionario
+                listaRelatorio = (from tickets in _context.ticket
+                                  join funcionarios in _context.funcionario
                                   on tickets.fk_funcionario equals funcionarios.id_funcionario
                                   where (tickets.fk_funcionario == codFuncionario) &&
                                         (tickets.dtentrega.Day + tickets.dtentrega.Month + tickets.dtentrega.Year >=
@@ -78,8 +81,8 @@ namespace Tickets.Controllers
             else
             {
                 //Gerando lista filtrada porém sem agrupamento
-                listaRelatorio = (from tickets in context.ticket
-                                  join funcionarios in context.funcionario
+                listaRelatorio = (from tickets in _context.ticket
+                                  join funcionarios in _context.funcionario
                                   on tickets.fk_funcionario equals funcionarios.id_funcionario
                                   where (tickets.dtentrega.Day + tickets.dtentrega.Month + tickets.dtentrega.Year >=
                                         dataInicio.Day + dataInicio.Month + dataInicio.Year)
@@ -125,7 +128,7 @@ namespace Tickets.Controllers
         public TicketDTO GetTicket(int id)
         {
             TicketDTO ticketDTO = new TicketDTO();
-            var Ticket = context.ticket.FirstOrDefault(t => t.id_ticket == id);            
+            var Ticket = _context.ticket.FirstOrDefault(t => t.id_ticket == id);            
             if (Ticket != null)
             {                
                 {

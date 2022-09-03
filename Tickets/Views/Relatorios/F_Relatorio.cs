@@ -13,9 +13,9 @@ using Tickets.Models;
 namespace Tickets.Views.Relatorios
 {
     public partial class F_Relatorio : Form
-    {        
-        private List<Relatorio> relatorios = new List<Relatorio>();
-        private TicketController ticketController = new TicketController();
+    {
+        TicketController ticketController = new TicketController();
+        private List<Relatorio> relatorios = new List<Relatorio>();        
         private DateTime DataInicio, DataFim;
         private bool Agrupar;
         private int CodFuncionario;

@@ -68,7 +68,6 @@ C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\System.Text.Json.xml
 C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\System.ValueTuple.xml
-C:\Users\lucas\Documents\Tickets\Tickets\obj\Debug\Tickets.csproj.AssemblyReference.cache
 C:\Users\lucas\Documents\Tickets\Tickets\obj\Debug\Tickets.Views.F_CadFuncionario.resources
 C:\Users\lucas\Documents\Tickets\Tickets\obj\Debug\Tickets.Views.F_Funcionario.resources
 C:\Users\lucas\Documents\Tickets\Tickets\obj\Debug\Tickets.F_Principal.resources
@@ -136,3 +135,9 @@ C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\zh-CHS\Microsoft.ReportViewer
 C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\lucas\Documents\Tickets\Tickets\obj\Debug\Tickets.Views.Relatorios.F_FiltroRelatorio.resources
 C:\Users\lucas\Documents\Tickets\Tickets\obj\Debug\Tickets.Views.Relatorios.F_Relatorio.resources
+C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\App.config
+C:\Users\lucas\Documents\Tickets\Tickets\obj\Debug\Tickets.csproj.AssemblyReference.cache
+C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\lucas\Documents\Tickets\Tickets\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml

@@ -103,3 +103,4 @@ C:\Users\lucas\Documents\Tickets\TestesUnitarios\obj\Debug\net5.0\TestesUnitario
 C:\Users\lucas\Documents\Tickets\TestesUnitarios\obj\Debug\net5.0\ref\TestesUnitarios.dll
 C:\Users\lucas\Documents\Tickets\TestesUnitarios\obj\Debug\net5.0\TestesUnitarios.pdb
 C:\Users\lucas\Documents\Tickets\TestesUnitarios\obj\Debug\net5.0\TestesUnitarios.genruntimeconfig.cache
+C:\Users\lucas\Documents\Tickets\TestesUnitarios\bin\Debug\net5.0\App.config

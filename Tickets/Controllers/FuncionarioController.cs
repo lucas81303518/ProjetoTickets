@@ -10,13 +10,17 @@ namespace Tickets.Controllers
 {
     public class FuncionarioController
     {
-         Context context = new Context();
+        private readonly Context _context;
+        public FuncionarioController()
+        {
+            _context = new Context();
+        }
         public bool Incluir(FuncionarioDB funcionario)
         {
             if (funcionario != null)
             {
-                context.funcionario.Add(funcionario);
-                context.SaveChanges();
+                _context.funcionario.Add(funcionario);
+                _context.SaveChanges();
                 return true;
             }
             else
@@ -24,7 +28,7 @@ namespace Tickets.Controllers
         }
         public bool Editar(FuncionarioDB funcionario)
         {                          
-            var func = context.funcionario.FirstOrDefault(f => f.id_funcionario == funcionario.id_funcionario);
+            var func = _context.funcionario.FirstOrDefault(f => f.id_funcionario == funcionario.id_funcionario);
             if (func != null)
             {
                 func.id_funcionario = funcionario.id_funcionario;
@@ -32,7 +36,7 @@ namespace Tickets.Controllers
                 func.cpf = funcionario.cpf;
                 func.situacao = funcionario.situacao;
                 func.dtalteracao = funcionario.dtalteracao;
-                context.SaveChanges();
+                _context.SaveChanges();
                 return true;
             }
             else
@@ -40,7 +44,7 @@ namespace Tickets.Controllers
         }
         public FuncionarioDB GetFuncionario(int id)
         {         
-            var funcionario = context.funcionario.FirstOrDefault(f => f.id_funcionario == id);
+            var funcionario = _context.funcionario.FirstOrDefault(f => f.id_funcionario == id);
             if (funcionario != null)
                 return funcionario;
             else
@@ -49,7 +53,7 @@ namespace Tickets.Controllers
         public List<FuncionarioDTO> GetFuncionarios()
         {          
             List<FuncionarioDTO> lista;
-            lista = (from Funcionarios in context.funcionario
+            lista = (from Funcionarios in _context.funcionario
                                            orderby Funcionarios.id_funcionario
                                            select new FuncionarioDTO
                                            {
@@ -68,7 +72,7 @@ namespace Tickets.Controllers
         //Retorna o Funcionario com o Cpf existente
         public FuncionarioDB CpfJaExiste(string cpf)
         {            
-            var funcionario = context.funcionario.FirstOrDefault(f => f.cpf == cpf);
+            var funcionario = _context.funcionario.FirstOrDefault(f => f.cpf == cpf);
             if (funcionario != null)
                 return funcionario;
             else
