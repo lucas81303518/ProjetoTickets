@@ -10,25 +10,31 @@ namespace Tickets.Controllers
     {
         Context context = new Context();
         public TicketController() { }
-        public void Incluir(TicketDB ticketDB)
-        {           
-            if(ticketDB != null)
+        public bool Incluir(TicketDB ticketDB)
+        {
+            if (ticketDB != null)
             {
                 context.ticket.Add(ticketDB);
                 context.SaveChanges();
+                return true;
             }
+            else
+                return false;
         }
-        public void Editar(TicketDB ticketDB)
+        public bool Editar(TicketDB ticketDB)
         {
             var ticket = context.ticket.FirstOrDefault(t => t.id_ticket == ticketDB.id_ticket);
-            if(ticket != null)
+            if (ticket != null)
             {
                 ticket.id_ticket = ticketDB.id_ticket;
                 ticket.fk_funcionario = ticketDB.fk_funcionario;
                 ticket.quantidade = ticketDB.quantidade;
-                ticket.situacao = ticketDB.situacao;               
+                ticket.situacao = ticketDB.situacao;
                 context.SaveChanges();
+                return true;
             }
+            else
+                return false;
         }
         public List<TicketDTO> GetTickets()
         {            
@@ -54,9 +60,10 @@ namespace Tickets.Controllers
                 listaRelatorio = (from tickets in context.ticket
                                   join funcionarios in context.funcionario
                                   on tickets.fk_funcionario equals funcionarios.id_funcionario
-                                  where ((tickets.fk_funcionario == codFuncionario) && (tickets.dtentrega.Day >= dataInicio.Day && tickets.dtentrega.Day <= dataFim.Day
-                                         && tickets.dtentrega.Month >= dataInicio.Month && tickets.dtentrega.Month <= dataFim.Month
-                                         && tickets.dtentrega.Year >= dataInicio.Year && tickets.dtentrega.Year <= dataFim.Year))
+                                  where (tickets.fk_funcionario == codFuncionario) &&
+                                        (tickets.dtentrega.Day + tickets.dtentrega.Month + tickets.dtentrega.Year >=
+                                        dataInicio.Day + dataInicio.Month + dataInicio.Year) &&
+                                        (tickets.dtentrega <= dataFim)
                                   orderby tickets.fk_funcionario, tickets.situacao
                                   select new Relatorio
                                   {
@@ -74,9 +81,8 @@ namespace Tickets.Controllers
                 listaRelatorio = (from tickets in context.ticket
                                   join funcionarios in context.funcionario
                                   on tickets.fk_funcionario equals funcionarios.id_funcionario
-                                  where (tickets.dtentrega.Day >= dataInicio.Day && tickets.dtentrega.Day <= dataFim.Day
-                                         && tickets.dtentrega.Month >= dataInicio.Month && tickets.dtentrega.Month <= dataFim.Month
-                                         && tickets.dtentrega.Year >= dataInicio.Year && tickets.dtentrega.Year <= dataFim.Year)
+                                  where (tickets.dtentrega.Day + tickets.dtentrega.Month + tickets.dtentrega.Year >=
+                                        dataInicio.Day + dataInicio.Month + dataInicio.Year)
                                   orderby tickets.fk_funcionario, tickets.situacao
                                   select new Relatorio
                                   {

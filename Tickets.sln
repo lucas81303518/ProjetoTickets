@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32602.291
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tickets", "Tickets\Tickets.csproj", "{4CA16592-7404-4D11-826A-3848E1107DF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestesUnitariosTickets", "TestesUnitariosTickets\TestesUnitariosTickets.csproj", "{3103CA43-B3EB-47AA-9819-B591E0A7BDF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestesUnitarios", "TestesUnitarios\TestesUnitarios.csproj", "{AA73E72F-E693-4DBC-A823-61D7C44E882A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{4CA16592-7404-4D11-826A-3848E1107DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CA16592-7404-4D11-826A-3848E1107DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CA16592-7404-4D11-826A-3848E1107DF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3103CA43-B3EB-47AA-9819-B591E0A7BDF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3103CA43-B3EB-47AA-9819-B591E0A7BDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3103CA43-B3EB-47AA-9819-B591E0A7BDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3103CA43-B3EB-47AA-9819-B591E0A7BDF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA73E72F-E693-4DBC-A823-61D7C44E882A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA73E72F-E693-4DBC-A823-61D7C44E882A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA73E72F-E693-4DBC-A823-61D7C44E882A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA73E72F-E693-4DBC-A823-61D7C44E882A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,34 +10,33 @@ namespace Tickets.Controllers
 {
     public class FuncionarioController
     {
-        Context context = new Context();
-        public void Incluir(FuncionarioDB funcionario)
-        {            
-            if(funcionario != null)
+         Context context = new Context();
+        public bool Incluir(FuncionarioDB funcionario)
+        {
+            if (funcionario != null)
             {
                 context.funcionario.Add(funcionario);
                 context.SaveChanges();
-            }            
-        }
-        public void Editar(FuncionarioDB funcionario)
-        {
-            try
-            {                
-                var func = context.funcionario.FirstOrDefault(f => f.id_funcionario == funcionario.id_funcionario);
-                if (func != null)
-                {
-                    func.id_funcionario = funcionario.id_funcionario;
-                    func.nome = funcionario.nome;
-                    func.cpf = funcionario.cpf;
-                    func.situacao = funcionario.situacao;
-                    func.dtalteracao = funcionario.dtalteracao;
-                    context.SaveChanges();
-                }
+                return true;
             }
-            catch
-            {                
-                throw;
-            }                     
+            else
+                return false;
+        }
+        public bool Editar(FuncionarioDB funcionario)
+        {                          
+            var func = context.funcionario.FirstOrDefault(f => f.id_funcionario == funcionario.id_funcionario);
+            if (func != null)
+            {
+                func.id_funcionario = funcionario.id_funcionario;
+                func.nome = funcionario.nome;
+                func.cpf = funcionario.cpf;
+                func.situacao = funcionario.situacao;
+                func.dtalteracao = funcionario.dtalteracao;
+                context.SaveChanges();
+                return true;
+            }
+            else
+                return false;                                           
         }
         public FuncionarioDB GetFuncionario(int id)
         {         

@@ -34,7 +34,7 @@ namespace Tickets.Views.Relatorios
                 //Caso tenha selecionado algo que não seja Todos.
                 if(cbFuncionarios.SelectedIndex > 0)                
                     codFuncionario = Convert.ToInt32(cbFuncionarios.Text.Substring(0, Utils.GetPos(cbFuncionarios.Text)));              
-                F_Relatorio f_RelatorioGeral = new F_Relatorio(dataInicio.Value.Date, dataFim.Value.Date, Agrupar, codFuncionario);
+                F_Relatorio f_RelatorioGeral = new F_Relatorio(dataInicio.Value, dataFim.Value, Agrupar, codFuncionario);
                 f_RelatorioGeral.ShowDialog();
             }
             else
